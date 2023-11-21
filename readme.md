@@ -6,8 +6,9 @@ Avant d'utiliser les fonctionnalités d'envoi d'e-mails, il est impératif de co
 
 Exemple de configuration du serveur :
 # Configurer le serveur
-from emailer import setup_email_email, send_email
-serveur_config = setup_email_email(
+from emailer import Emailer
+instans= Emailer()
+serveur_config =instans.setup_email_email(
     serveur="smtp.example.com",
     port=587,
     sender_email="votre_email@example.com",
@@ -20,7 +21,7 @@ Exemple d'envoi d'e-mail :
 
 
 try:
-    send_email(
+    instans.send_email(
         destinataire="destinataire@example.com",
         sujet="Sujet de l'e-mail",
         corps="Corps de l'e-mail",
